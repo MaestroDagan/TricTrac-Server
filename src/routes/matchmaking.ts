@@ -15,7 +15,7 @@ router.get('/start', async (req, res) => {
   const matchmaking = cache.get('matchmaking') as string | undefined;
   if (matchmaking) {
     await axios.get(`http://localhost:${process.env.PORT}/matchmaking/findmatch?username=${username}`);
-    return res.status(200).redirect(`http://localhost:5173/game?game=${matchmaking}-${username}?user=2`);
+    return res.status(200).redirect(`http://localhost:5173/game?game=${matchmaking}-${username}?user=1`);
   }
 
   cache.set('matchmaking', username);
